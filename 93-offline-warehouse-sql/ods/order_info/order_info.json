@@ -1,0 +1,62 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 1
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "bigdata",
+            "password": "bigdata",
+            "connection": [
+              {
+                "querySql": [
+                  "SELECT * FROM order_info WHERE date(create_time)='${dt}' "
+                ],
+                "jdbcUrl": [
+                  "jdbc:mysql://192.168.110.131:3306/cloud_ecommerce?useUnicode=true&characterEncoding=utf-8"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "hdfswriter",
+          "parameter": {
+            "defaultFS": "hdfs://192.168.42.101:8020",
+            "fileType": "text",
+            "path": "/hive3/warehouse/ods.db/ods_order_info/dt=${dt}",
+            "fileName": "order_info",
+            "column": [
+              { "name": "order_id",         "type": "BIGINT"  },
+              { "name": "order_no",         "type": "STRING"  },
+              { "name": "user_id",          "type": "BIGINT"  },
+              { "name": "total_amount",     "type": "STRING"  },
+              { "name": "pay_amount",       "type": "STRING"  },
+              { "name": "freight_amount",   "type": "STRING"  },
+              { "name": "discount_amount",  "type": "STRING"  },
+              { "name": "coupon_id",        "type": "BIGINT"  },
+              { "name": "order_status",     "type": "TINYINT" },
+              { "name": "payment_method",   "type": "STRING"  },
+              { "name": "payment_time",     "type": "STRING"  },
+              { "name": "delivery_time",    "type": "STRING"  },
+              { "name": "receive_time",     "type": "STRING"  },
+              { "name": "receiver_name",    "type": "STRING"  },
+              { "name": "receiver_phone",   "type": "STRING"  },
+              { "name": "receiver_address", "type": "STRING"  },
+              { "name": "order_remark",     "type": "STRING"  },
+              { "name": "create_time",      "type": "STRING"  },
+              { "name": "update_time",      "type": "STRING"  }
+            ],
+            "writeMode": "truncate",
+            "fieldDelimiter": "\t"
+          }
+        }
+      }
+    ]
+  }
+}

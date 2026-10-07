@@ -1,0 +1,12 @@
+<configuration>
+  <property>
+    <name>hive.metastore.uris</name>
+    <!-- ⚠️ 关键步骤：替换为你的 Hive Metastore 服务地址和端口 -->
+    <value>thrift://localhost:9083</value>
+  </property>
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <!-- 替换为你的 Hive 仓库路径，例如 hdfs:///user/hive/warehouse -->
+    <value>/hive3/warehouse</value>
+  </property>
+</configuration>

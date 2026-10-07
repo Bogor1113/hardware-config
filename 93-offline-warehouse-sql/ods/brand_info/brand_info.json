@@ -1,0 +1,48 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 1
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "bigdata",
+            "password": "bigdata",
+            "connection": [
+              {
+                "querySql": [
+                  "SELECT * FROM brand_info "
+                ],
+                "jdbcUrl": [
+                  "jdbc:mysql://192.168.110.131:3306/cloud_ecommerce?useUnicode=true&characterEncoding=utf-8"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "hdfswriter",
+          "parameter": {
+            "defaultFS": "hdfs://192.168.42.101:8020",
+            "fileType": "text",
+            "path": "/hive3/warehouse/ods.db/ods_brand_info",
+            "fileName": "brand_info",
+            "column": [
+              { "name": "brand_id",    "type": "INT"    },
+              { "name": "brand_name",  "type": "STRING" },
+              { "name": "brand_en",    "type": "STRING" },
+              { "name": "country",     "type": "STRING" },
+              { "name": "create_time", "type": "STRING" }
+            ],
+            "writeMode": "truncate",
+            "fieldDelimiter": "\t"
+          }
+        }
+      }
+    ]
+  }
+}

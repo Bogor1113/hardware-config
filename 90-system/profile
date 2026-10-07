@@ -1,0 +1,66 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+if [ "${PS1-}" ]; then
+  if [ "${BASH-}" ] && [ "$BASH" != "/bin/sh" ]; then
+    # The file bash.bashrc already sets the default PS1.
+    # PS1='\h:\w\$ '
+    if [ -f /etc/bash.bashrc ]; then
+      . /etc/bash.bashrc
+    fi
+  else
+    if [ "$(id -u)" -eq 0 ]; then
+      PS1='# '
+    else
+      PS1='$ '
+    fi
+  fi
+fi
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+export PDSH_RCMD_TYPE=ssh
+
+# JDK 8
+export JAVA_HOME=/opt/jdk
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+
+export HADOOP_HOME=/opt/hadoop3
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+export HIVE_HOME=/opt/hive3
+export PATH=$PATH:$HIVE_HOME/bin
+
+#sqoop environment
+export SQOOP_HOME=/opt/sqoop
+export PATH=$PATH:$SQOOP_HOME/bin
+export CLASSPATH=$CLASSPATH:$SQOOP_HOME/lib
+
+export SCALA_HOME=/opt/scala
+export PATH=$SCALA_HOME/bin:$PATH
+
+export SPARK_HOME=/opt/spark2
+export PATH=$SPARK_HOME/bin:$PATH
+
+export KAFKA_HOME=/opt/kafka
+export PATH=$KAFKA_HOME/bin:$PATH
+
+export FLINK_HOME=/opt/flink
+export PATH=$FLINK_HOME/bin:$PATH
+
+export HADOOP_CLASSPATH=`hadoop classpath`:$TEZ_CONF_DIR
+export TEZ_HOME=/opt/tez-0.10.2
+export TEZ_CONF_DIR=$TEZ_HOME/conf
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_YARN_HOME=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME

@@ -1,0 +1,9 @@
+export TEZ_HOME=/opt/tez-0.10.2
+# 只收集 tez 自己的 jar（tez-api/dag/common/mapreduce/runtime 等），排除 tez 自带的 hadoop-*、hive 不需要的重复依赖
+TEZ_JARS=""
+for jar in `ls $TEZ_HOME/tez-*.jar`; do
+  TEZ_JARS=$TEZ_JARS:$jar
+done
+export TEZ_JARS=${TEZ_JARS:1}
+# hive aux jars 用 tez 自身 jar；不加入 tez/lib 下的 hadoop-* 以免与集群 hadoop 3.3.6 冲突
+export HIVE_AUX_JARS_PATH=$TEZ_JARS

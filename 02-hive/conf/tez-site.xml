@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<configuration>
+   <property>
+      <name>tez.lib.uris</name>
+      <value>${fs.defaultFS}/tez/tez.tar.gz</value>
+   </property>
+   <property>
+      <name>tez.use.cluster.hadoop-libs</name>
+      <value>true</value>
+   </property>
+   <property>
+      <name>tez.history.logging.service.class</name>
+    <value>org.apache.tez.dag.history.logging.impl.SimpleHistoryLoggingService</value>
+   </property>
+   <property>
+      <name>tez.am.resource.memory.mb</name>
+    <value>1024</value>
+   </property>
+   <property>
+      <name>tez.am.java.opts</name>
+      <value>-Xmx768m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError</value>
+   </property>
+   <property>
+      <name>tez.task.resource.memory.mb</name>
+    <value>1024</value>
+   </property>
+   <property>
+      <name>tez.session.am.dag.submit.timeout.secs</name>
+      <value>120</value>
+   </property>
+   <property>
+      <name>tez.am.log.level</name>
+      <value>INFO</value>
+   </property>
+   <property>
+      <name>tez.task.log.level</name>
+      <value>INFO</value>
+   </property>
+   <property>
+      <name>tez.am.logging.profile</name>
+      <value>MINIMAL</value>
+   </property>
+   <property>
+      <name>tez.container.log.level</name>
+      <value>INFO</value>
+   </property>
+<property>
+  <name>tez.runtime.io.sort.mb</name>
+  <value>128</value>
+</property>
+  <property>
+    <name>tez.runtime.io.sort.factor</name>
+    <value>15</value>
+  </property>
+  <property>
+    <name>tez.runtime.shuffle.parallel.copies</name>
+    <value>5</value>
+  </property>
+  <property>
+    <name>tez.session.client.timeout.secs</name>
+    <value>60</value>
+  </property>
+  <property>
+    <name>tez.container.max.java.heap.fraction</name>
+    <value>0.75</value>
+  </property>
+  <property>
+    <name>tez.counters.max</name>
+    <value>2000</value>
+  </property>
+  <property>
+    <name>tez.counters.max.groups</name>
+    <value>1000</value>
+  </property>
+  <property>
+    <name>tez.am.container.reuse.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>tez.dag.recovery.enabled</name>
+    <value>false</value>
+  </property>
+
+   <property>
+      <name>tez.task.java.opts</name>
+      <value>-Xmx768m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError</value>
+   </property>
+
+   <property>
+      <name>tez.am.container.reuse.rack-fallback.enabled</name>
+      <value>true</value>
+   </property>
+
+   <property>
+      <name>tez.am.container.reuse.non-local-fallback.enabled</name>
+      <value>true</value>
+   </property>
+
+   <property>
+      <name>tez.am.container.idle.release-timeout-min.millis</name>
+      <value>10000</value>
+   </property>
+
+   <property>
+      <name>tez.am.container.idle.release-timeout-max.millis</name>
+      <value>20000</value>
+   </property>
+
+   <property>
+      <name>tez.am.container.reuse.locality.delay-allocation-millis</name>
+      <value>250</value>
+   </property>
+
+   <property>
+      <name>tez.task.max-events-per-heartbeat</name>
+      <value>1000</value>
+   </property>
+
+   <property>
+      <name>tez.runtime.shuffle.fetch.buffer.percent</name>
+      <value>0.6</value>
+   </property>
+
+   <property>
+      <name>tez.runtime.shuffle.memory.limit.percent</name>
+      <value>0.25</value>
+   </property>
+
+   <property>
+      <name>tez.runtime.sorter.class</name>
+      <value>PIPELINED</value>
+   </property>
+</configuration>

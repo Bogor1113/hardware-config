@@ -1,0 +1,51 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 1
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "bigdata",
+            "password": "bigdata",
+            "connection": [
+              {
+                "querySql": [
+                  "SELECT * FROM code_value "
+                ],
+                "jdbcUrl": [
+                  "jdbc:mysql://192.168.110.131:3306/cloud_ecommerce?useUnicode=true&characterEncoding=utf-8"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "hdfswriter",
+          "parameter": {
+            "defaultFS": "hdfs://192.168.42.101:8020",
+            "fileType": "text",
+            "path": "/hive3/warehouse/dim.db/dim_code_value",
+            "fileName": "code_value",
+            "column": [
+              { "name": "code_id",         "type": "INT"    },
+              { "name": "code_group",      "type": "STRING" },
+              { "name": "code_group_name", "type": "STRING" },
+              { "name": "code_value",      "type": "STRING" },
+              { "name": "code_label",      "type": "STRING" },
+              { "name": "sort_order",      "type": "INT"    },
+              { "name": "status",          "type": "TINYINT" },
+              { "name": "create_time",     "type": "STRING" }
+            ],
+            "writeMode": "truncate",
+            "fieldDelimiter": "\t"
+          }
+        }
+      }
+    ]
+  }
+}

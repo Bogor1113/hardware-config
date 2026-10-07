@@ -1,0 +1,60 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 1
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "bigdata",
+            "password": "bigdata",
+            "connection": [
+              {
+                "querySql": [
+                  "SELECT * FROM user_info "
+                ],
+                "jdbcUrl": [
+                  "jdbc:mysql://192.168.110.131:3306/cloud_ecommerce?useUnicode=true&characterEncoding=utf-8"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "hdfswriter",
+          "parameter": {
+            "defaultFS": "hdfs://192.168.42.101:8020",
+            "fileType": "text",
+            "path": "/hive3/warehouse/ods.db/ods_user_info",
+            "fileName": "user_info",
+            "column": [
+              { "name": "user_id",          "type": "BIGINT"  },
+              { "name": "username",         "type": "STRING"  },
+              { "name": "password",         "type": "STRING"  },
+              { "name": "real_name",        "type": "STRING"  },
+              { "name": "gender",           "type": "TINYINT" },
+              { "name": "age",              "type": "INT"     },
+              { "name": "phone",            "type": "STRING"  },
+              { "name": "email",            "type": "STRING"  },
+              { "name": "city",             "type": "STRING"  },
+              { "name": "province",         "type": "STRING"  },
+              { "name": "address",          "type": "STRING"  },
+              { "name": "register_date",    "type": "STRING"  },
+              { "name": "register_channel", "type": "STRING"  },
+              { "name": "user_level",       "type": "TINYINT" },
+              { "name": "status",           "type": "TINYINT" },
+              { "name": "create_time",      "type": "STRING"  },
+              { "name": "update_time",      "type": "STRING"  }
+            ],
+            "writeMode": "truncate",
+            "fieldDelimiter": "\t"
+          }
+        }
+      }
+    ]
+  }
+}
