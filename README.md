@@ -166,15 +166,34 @@ bash realtime-warehouse_260822.sh {start|stop|restart|status}
 
 ---
 
-## 六、⚠️ 安全说明
+## 六、⚠️ 安全警告（重要）
 
-**本仓库所有明文凭据已脱敏**，统一替换为 `__REDACTED__`。
+> **本仓库是公开仓库，且配置为「原封不动」备份——包含明文凭据。**
 
-- 涉及文件：Hive Metastore 密码、DolphinScheduler 数据库密码与 JWT token、Sqoop 配置等
-- 真实值保存在本地 `_secrets/` 目录（**已加入 .gitignore，不会推送**）
-- `_local-backups/` 存放历史备份文件（同样不推送）
+本仓库所有配置文件与集群**逐字节完全一致**，未做任何脱敏处理。因此以下敏感信息是**公开可见**的：
 
-部署到新环境时，需将 `__REDACTED__` 替换为实际凭据。
+| 文件位置 | 敏感内容 |
+|---|---|
+| `02-hive/conf/hive-site.xml`、`04-spark/conf/hive-site.xml` | Hive Metastore 数据库用户名与密码 |
+| `02-hive/hcatalog-etc/hcatalog/proto-hive-site.xml` | 同上 |
+| `12-dolphinscheduler/*/application.yaml` | DolphinScheduler 数据库密码、**JWT auth-token** |
+| `12-dolphinscheduler/*/common.properties` | MinIO / 阿里云 access key |
+| `12-dolphinscheduler/*/dolphinscheduler_env.sh` | `SPRING_DATASOURCE_PASSWORD` |
+| `92-startup-scripts/check_doris_260425.sh` | `DORIS_PWD` |
+| `92-startup-scripts/*.sh` | 集群内网地址与拓扑 |
+
+**该仓库仅供教学/实验环境使用，且集群运行于内网。**
+
+### 如果你要复用这套配置
+
+1. **务必先改掉所有密码**——尤其是 DolphinScheduler 的 `auth-token`（可直接用于伪造登录会话）
+2. 建议将本仓库转为 private，或复制到自己的私有仓库
+3. 切勿将本仓库用于任何暴露在公网的环境
+
+### 关于历史记录
+
+一旦此类内容被推送到公开仓库，**即使后续删除提交也无法真正移除**——GitHub 的缓存、fork 与第三方爬虫可能已留存副本。
+如需轮换，请直接在生产/实验中修改实际密码，而不是依赖清理仓库历史。
 
 ---
 

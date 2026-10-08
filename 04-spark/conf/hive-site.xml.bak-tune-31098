@@ -1,18 +1,33 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<configuration>
-  
-  
-  
-  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?><!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+--><configuration>
+  <!-- WARNING!!! This file is auto generated for documentation purposes ONLY! -->
+  <!-- WARNING!!! Any changes you make to this file will be ignored by Hive.   -->
+  <!-- WARNING!!! You must make your changes in hive-site.xml instead.         -->
+  <!-- Hive Execution Parameters -->
   <property>
     <name>hive.exec.script.wrapper</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.exec.plan</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.exec.stagingdir</name>
@@ -141,7 +156,7 @@
   <property>
     <name>hive.exec.submitviachild</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.exec.submit.local.task.via.child</name>
@@ -188,7 +203,7 @@
   </property>
   <property>
     <name>hive.exec.compress.intermediate</name>
-    <value>true</value>
+    <value>false</value>
     <description>
       This controls whether intermediate files produced by Hive between multiple map-reduce jobs are compressed. 
       The compression codec and other options are determined from Hadoop config variables mapred.output.compress*
@@ -196,22 +211,22 @@
   </property>
   <property>
     <name>hive.intermediate.compression.codec</name>
-    <value>org.apache.hadoop.io.compress.DefaultCodec</value>
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.intermediate.compression.type</name>
-    <value>BLOCK</value>
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.exec.reducers.bytes.per.reducer</name>
-    <value>64000000</value>
+    <value>256000000</value>
     <description>size per reducer.The default is 256Mb, i.e if the input size is 1G, it will use 4 reducers.</description>
   </property>
   <property>
     <name>hive.exec.reducers.max</name>
-    <value>12</value>
+    <value>1009</value>
     <description>
       max number of reducers will be used. If the one specified in the configuration parameter mapred.reduce.tasks is
       negative, Hive will use this one as the max number of reducers when automatically determine number of reducers.
@@ -219,7 +234,7 @@
   </property>
   <property>
     <name>hive.exec.pre.hooks</name>
-    <value />
+    <value/>
     <description>
       Comma-separated list of pre-execution hooks to be invoked for each statement. 
       A pre-execution hook is specified as the name of a Java class which implements the 
@@ -228,7 +243,7 @@
   </property>
   <property>
     <name>hive.exec.post.hooks</name>
-    <value />
+    <value/>
     <description>
       Comma-separated list of post-execution hooks to be invoked for each statement. 
       A post-execution hook is specified as the name of a Java class which implements the 
@@ -237,7 +252,7 @@
   </property>
   <property>
     <name>hive.exec.failure.hooks</name>
-    <value />
+    <value/>
     <description>
       Comma-separated list of on-failure hooks to be invoked for each statement. 
       An on-failure hook is specified as the name of Java class which implements the 
@@ -246,7 +261,7 @@
   </property>
   <property>
     <name>hive.exec.query.redactor.hooks</name>
-    <value />
+    <value/>
     <description>
       Comma-separated list of hooks to be invoked for each query which can 
       tranform the query before it's placed in the job.xml file. Must be a Java class which 
@@ -255,7 +270,7 @@
   </property>
   <property>
     <name>hive.client.stats.publishers</name>
-    <value />
+    <value/>
     <description>
       Comma-separated list of statistics publishers to be invoked on counters on each job. 
       A client stats publisher is specified as the name of a Java class which implements the 
@@ -300,7 +315,7 @@
   </property>
   <property>
     <name>hive.exec.dynamic.partition.mode</name>
-    <value>nonstrict</value>
+    <value>strict</value>
     <description>
       In strict mode, the user must specify at least one static partition
       in case the user accidentally overwrites all partitions.
@@ -334,7 +349,7 @@
   <property>
     <name>hive.lockmgr.zookeeper.default.partition.name</name>
     <value>__HIVE_DEFAULT_ZOOKEEPER_PARTITION__</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.exec.show.job.failure.debug.info</name>
@@ -355,16 +370,16 @@
   <property>
     <name>hive.exec.job.debug.timeout</name>
     <value>30000</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.exec.tasklog.debug.timeout</name>
     <value>20000</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.output.file.extension</name>
-    <value />
+    <value/>
     <description>
       String used as a file extension for output files. 
       If not set, defaults to the codec extension for text files (e.g. ".gz"), or no extension otherwise.
@@ -402,7 +417,7 @@
   </property>
   <property>
     <name>hive.ignore.mapjoin.hint</name>
-    <value>false</value>
+    <value>true</value>
     <description>Ignore the mapjoin hint</description>
   </property>
   <property>
@@ -439,12 +454,12 @@
   </property>
   <property>
     <name>hive.metastore.warehouse.external.dir</name>
-    <value />
+    <value/>
     <description>Default location for external tables created in the warehouse. If not set or null, then the normal warehouse location will be used as the default location.</description>
   </property>
   <property>
     <name>hive.metastore.uris</name>
-    <value>thrift://192.168.42.101:9083</value>
+    <value>thrift://localhost:9083</value>
     <description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
   </property>
   <property>
@@ -505,7 +520,7 @@
   </property>
   <property>
     <name>hive.metastore.uri.resolver</name>
-    <value />
+    <value/>
     <description>If set, fully qualified class name of resolver for hive metastore uri's</description>
   </property>
   <property>
@@ -556,7 +571,7 @@
   </property>
   <property>
     <name>hive.metastore.ds.connection.url.hook</name>
-    <value />
+    <value/>
     <description>Name of the hook to use for retrieving the JDO connection URL. If empty, the value in javax.jdo.option.ConnectionURL is used</description>
   </property>
   <property>
@@ -566,7 +581,7 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:mysql://192.168.42.101/metastore?createDatabaseIfNotExist=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</value>
+    <value>jdbc:mysql://localhost/metastore?createDatabaseIfNotExist=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</value>
     <description>
       JDBC connect string for a JDBC metastore.
       To use SSL to encrypt/authenticate the connection, provide database-specific SSL flag in the connection URL.
@@ -575,7 +590,7 @@
   </property>
   <property>
     <name>hive.metastore.dbaccess.ssl.properties</name>
-    <value />
+    <value/>
     <description>
       Comma-separated SSL properties for metastore to access database when JDO connection URL
       enables SSL access. e.g. javax.net.ssl.trustStore=/tmp/truststore,javax.net.ssl.trustStorePassword=pwd.
@@ -643,16 +658,16 @@
   <property>
     <name>hive.metastore.archive.intermediate.archived</name>
     <value>_INTERMEDIATE_ARCHIVED</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.metastore.archive.intermediate.extracted</name>
     <value>_INTERMEDIATE_EXTRACTED</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.metastore.kerberos.keytab.file</name>
-    <value />
+    <value/>
     <description>The path to the Kerberos Keytab file containing the metastore Thrift server's service principal.</description>
   </property>
   <property>
@@ -665,7 +680,7 @@
   </property>
   <property>
     <name>hive.metastore.client.kerberos.principal</name>
-    <value />
+    <value/>
     <description>The Kerberos principal associated with the HA cluster of hcat_servers.</description>
   </property>
   <property>
@@ -688,7 +703,7 @@
   </property>
   <property>
     <name>hive.metastore.token.signature</name>
-    <value />
+    <value/>
     <description>The delegation token service name to match when selecting a token from the current user's tokens.</description>
   </property>
   <property>
@@ -698,7 +713,7 @@
   </property>
   <property>
     <name>hive.cluster.delegation.token.store.zookeeper.connectString</name>
-    <value />
+    <value/>
     <description>
       The ZooKeeper token store connect string. You can re-use the configuration value
       set in hive.zookeeper.quorum, by leaving this parameter unset.
@@ -716,7 +731,7 @@
   </property>
   <property>
     <name>hive.cluster.delegation.token.store.zookeeper.acl</name>
-    <value />
+    <value/>
     <description>
       ACL for token store entries. Comma separated list of ACL entries. For example:
       sasl:hive/host1@MY.DOMAIN:cdrwa,sasl:hive/host2@MY.DOMAIN:cdrwa
@@ -819,7 +834,7 @@
   <property>
     <name>datanucleus.cache.level2.type</name>
     <value>none</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>datanucleus.identifierFactory</name>
@@ -832,7 +847,7 @@
   <property>
     <name>datanucleus.rdbms.useLegacyNativeValueStrategy</name>
     <value>true</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>datanucleus.plugin.pluginRegistryBundleCheck</name>
@@ -855,7 +870,7 @@
   </property>
   <property>
     <name>hive.metastore.init.hooks</name>
-    <value />
+    <value/>
     <description>
       A comma separated list of hooks to be invoked at the beginning of HMSHandler initialization. 
       An init hook is specified as the name of Java class which extends org.apache.hadoop.hive.metastore.MetaStoreInitListener.
@@ -863,17 +878,17 @@
   </property>
   <property>
     <name>hive.metastore.pre.event.listeners</name>
-    <value />
+    <value/>
     <description>List of comma separated listeners for metastore events.</description>
   </property>
   <property>
     <name>hive.metastore.event.listeners</name>
-    <value />
+    <value/>
     <description>A comma separated list of Java classes that implement the org.apache.hadoop.hive.metastore.MetaStoreEventListener interface. The metastore event and corresponding listener method will be invoked in separate JDO transactions. Alternatively, configure hive.metastore.transactional.event.listeners to ensure both are invoked in same JDO transaction.</description>
   </property>
   <property>
     <name>hive.metastore.transactional.event.listeners</name>
-    <value />
+    <value/>
     <description>A comma separated list of Java classes that implement the org.apache.hadoop.hive.metastore.MetaStoreEventListener interface. Both the metastore event and corresponding listener method will be invoked in the same JDO transaction.</description>
   </property>
   <property>
@@ -899,7 +914,7 @@
   </property>
   <property>
     <name>hive.metastore.event.db.notification.api.auth</name>
-    <value>false</value>
+    <value>true</value>
     <description>
       Should metastore do authorization against database notification related APIs such as get_next_notification.
       If set to true, then only the superusers in proxy settings have the permission
@@ -958,7 +973,7 @@
   </property>
   <property>
     <name>hive.metastore.partition.name.whitelist.pattern</name>
-    <value />
+    <value/>
     <description>Partition names will be checked against this regex pattern and rejected if not matched.</description>
   </property>
   <property>
@@ -1061,12 +1076,12 @@
   </property>
   <property>
     <name>hive.table.parameters.default</name>
-    <value />
+    <value/>
     <description>Default property values for newly created tables</description>
   </property>
   <property>
     <name>hive.ddl.createtablelike.properties.whitelist</name>
-    <value />
+    <value/>
     <description>Table Properties to copy over when executing a Create Table Like.</description>
   </property>
   <property>
@@ -1095,7 +1110,7 @@
   <property>
     <name>hive.metastore.expression.proxy</name>
     <value>org.apache.hadoop.hive.ql.optimizer.ppr.PartitionExpressionForMetastore</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>javax.jdo.option.DetachAllOnCommit</name>
@@ -1114,12 +1129,12 @@
   </property>
   <property>
     <name>hive.metastore.end.function.listeners</name>
-    <value />
+    <value/>
     <description>List of comma separated listeners for the end of metastore functions.</description>
   </property>
   <property>
     <name>hive.metastore.partition.inherit.table.properties</name>
-    <value />
+    <value/>
     <description>
       List of comma separated keys occurring in table properties which will get inherited to newly created partitions. 
       * implies all the keys will get inherited.
@@ -1216,27 +1231,27 @@
   </property>
   <property>
     <name>hive.metastore.keystore.path</name>
-    <value />
+    <value/>
     <description>Metastore SSL certificate keystore location.</description>
   </property>
   <property>
     <name>hive.metastore.keystore.password</name>
-    <value />
+    <value/>
     <description>Metastore SSL certificate keystore password.</description>
   </property>
   <property>
     <name>hive.metastore.truststore.path</name>
-    <value />
+    <value/>
     <description>Metastore SSL certificate truststore location.</description>
   </property>
   <property>
     <name>hive.metastore.truststore.password</name>
-    <value />
+    <value/>
     <description>Metastore SSL certificate truststore password.</description>
   </property>
   <property>
     <name>hive.metadata.export.location</name>
-    <value />
+    <value/>
     <description>
       When used in conjunction with the org.apache.hadoop.hive.ql.parse.MetaDataExportListener pre event listener, 
       it is the location to which the metadata will be exported. The default is an empty string, which results in the 
@@ -1255,7 +1270,7 @@
   <property>
     <name>hive.cli.errors.ignore</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.cli.print.current.db</name>
@@ -1281,17 +1296,17 @@
   <property>
     <name>hive.metastore.fs.handler.class</name>
     <value>org.apache.hadoop.hive.metastore.HiveMetaStoreFsImpl</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.session.id</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.session.silent</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.local.time.zone</name>
@@ -1310,12 +1325,12 @@
   </property>
   <property>
     <name>hive.query.string</name>
-    <value />
+    <value/>
     <description>Query being executed (might be multiple per a session)</description>
   </property>
   <property>
     <name>hive.query.id</name>
-    <value />
+    <value/>
     <description>ID for query being executed (might be multiple per a session)</description>
   </property>
   <property>
@@ -1325,17 +1340,17 @@
   </property>
   <property>
     <name>hive.jar.path</name>
-    <value />
+    <value/>
     <description>The location of hive_cli.jar that is used when submitting jobs in a separate jvm.</description>
   </property>
   <property>
     <name>hive.aux.jars.path</name>
-    <value />
+    <value/>
     <description>The location of the plugin jars that contain implementations of user defined functions and serdes.</description>
   </property>
   <property>
     <name>hive.reloadable.aux.jars.path</name>
-    <value />
+    <value/>
     <description>
       The locations of the plugin jars, which can be a comma-separated folders or jars. Jars can be renewed
       by executing reload command. And these jars can be used as the auxiliary classes like creating a UDF or SerDe.
@@ -1343,17 +1358,17 @@
   </property>
   <property>
     <name>hive.added.files.path</name>
-    <value />
+    <value/>
     <description>This an internal parameter.</description>
   </property>
   <property>
     <name>hive.added.jars.path</name>
-    <value />
+    <value/>
     <description>This an internal parameter.</description>
   </property>
   <property>
     <name>hive.added.archives.path</name>
-    <value />
+    <value/>
     <description>This an internal parameter.</description>
   </property>
   <property>
@@ -1443,18 +1458,18 @@
   </property>
   <property>
     <name>hive.load.data.owner</name>
-    <value />
+    <value/>
     <description>Set the owner of files loaded using load data in managed tables.</description>
   </property>
   <property>
     <name>hive.mapred.mode</name>
-    <value />
+    <value/>
     <description>Deprecated; use hive.strict.checks.* settings instead.</description>
   </property>
   <property>
     <name>hive.alias</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.map.aggr</name>
@@ -1610,7 +1625,7 @@
   <property>
     <name>hive.mapjoin.bucket.cache.size</name>
     <value>100</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.mapjoin.optimized.hashtable</name>
@@ -1948,22 +1963,22 @@
   </property>
   <property>
     <name>hive.test.mode.nosamplelist</name>
-    <value />
+    <value/>
     <description>In test mode, specifies comma separated table names which would not apply sampling</description>
   </property>
   <property>
     <name>hive.test.dummystats.aggregator</name>
-    <value />
+    <value/>
     <description>internal variable for test</description>
   </property>
   <property>
     <name>hive.test.dummystats.publisher</name>
-    <value />
+    <value/>
     <description>internal variable for test</description>
   </property>
   <property>
     <name>hive.test.currenttimestamp</name>
-    <value />
+    <value/>
     <description>current timestamp for test</description>
   </property>
   <property>
@@ -2001,7 +2016,7 @@
   </property>
   <property>
     <name>hive.merge.tezfiles</name>
-    <value>true</value>
+    <value>false</value>
     <description>Merge small files at the end of a Tez DAG</description>
   </property>
   <property>
@@ -2026,7 +2041,7 @@
   <property>
     <name>hive.merge.rcfile.block.level</name>
     <value>true</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.merge.orcfile.stripe.level</name>
@@ -2055,27 +2070,27 @@
   <property>
     <name>hive.exec.rcfile.use.sync.cache</name>
     <value>true</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.io.rcfile.record.interval</name>
     <value>2147483647</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.io.rcfile.column.number.conf</name>
     <value>0</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.io.rcfile.tolerate.corruptions</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.io.rcfile.record.buffer.size</name>
     <value>4194304</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>parquet.memory.pool.ratio</name>
@@ -2157,7 +2172,7 @@
   </property>
   <property>
     <name>hive.classloader.shade.prefix</name>
-    <value />
+    <value/>
     <description>
       During reflective instantiation of a class
       (input, output formats, serde etc.), when classloader throws ClassNotFoundException, as a fallback this
@@ -2244,7 +2259,7 @@
   </property>
   <property>
     <name>hive.optimize.skewjoin</name>
-    <value>true</value>
+    <value>false</value>
     <description>
       Whether to enable skew join optimization. 
       The algorithm is as follows: At runtime, detect the keys with a large skew. Instead of
@@ -2278,7 +2293,7 @@
   </property>
   <property>
     <name>hive.auto.convert.join.noconditionaltask.size</name>
-    <value>16777216</value>
+    <value>10000000</value>
     <description>
       If hive.auto.convert.join.noconditionaltask is off, this parameter does not take affect. 
       However, if it is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than this size, 
@@ -2387,7 +2402,7 @@
   <property>
     <name>hive.hashtable.loadfactor</name>
     <value>0.75</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.mapjoin.followby.gby.localtask.max.memory.usage</name>
@@ -2415,7 +2430,7 @@
   <property>
     <name>hive.debug.localtask</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.input.format</name>
@@ -2429,7 +2444,7 @@
   </property>
   <property>
     <name>hive.tez.container.size</name>
-    <value>1024</value>
+    <value>-1</value>
     <description>By default Tez will spawn containers of the size of a mapper. This can be used to overwrite.</description>
   </property>
   <property>
@@ -2442,7 +2457,7 @@
   </property>
   <property>
     <name>hive.tez.java.opts</name>
-    <value>-Xmx768m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError</value>
+    <value/>
     <description>By default Tez will use the Java options from map tasks. This can be used to overwrite.</description>
   </property>
   <property>
@@ -2460,7 +2475,7 @@
   </property>
   <property>
     <name>hive.query.name</name>
-    <value />
+    <value/>
     <description>
       This named is used by Tez to set the dag name. This name in turn will appear on 
       the Tez UI representing the work that was done. Used by Spark to set the query name, will show up in the
@@ -2480,7 +2495,7 @@
   <property>
     <name>hive.mapred.partitioner</name>
     <value>org.apache.hadoop.hive.ql.io.DefaultHivePartitioner</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.enforce.sortmergebucketmapjoin</name>
@@ -2544,7 +2559,7 @@
   <property>
     <name>hive.exec.script.trust</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.exec.rowoffset</name>
@@ -2763,7 +2778,7 @@
   </property>
   <property>
     <name>hive.optimize.skewjoin.compiletime</name>
-    <value>true</value>
+    <value>false</value>
     <description>
       Whether to create a separate plan for skewed keys for the tables in the join.
       This is based on the skewed keys stored in the metadata. At compile time, the plan is broken
@@ -2854,7 +2869,7 @@
   </property>
   <property>
     <name>hive.stats.autogather</name>
-    <value>false</value>
+    <value>true</value>
     <description>A flag to gather statistics (only basic) automatically during the INSERT OVERWRITE command.</description>
   </property>
   <property>
@@ -2874,17 +2889,17 @@
   </property>
   <property>
     <name>hive.stats.default.publisher</name>
-    <value />
+    <value/>
     <description>The Java class (implementing the StatsPublisher interface) that is used by default if hive.stats.dbclass is custom type.</description>
   </property>
   <property>
     <name>hive.stats.default.aggregator</name>
-    <value />
+    <value/>
     <description>The Java class (implementing the StatsAggregator interface) that is used by default if hive.stats.dbclass is custom type.</description>
   </property>
   <property>
     <name>hive.client.stats.counters</name>
-    <value />
+    <value/>
     <description>
       Subset of counters that should be of interest for hive.client.stats.publishers (when one wants to limit their publishing). 
       Non-display names should be used
@@ -3059,7 +3074,7 @@
   <property>
     <name>hive.lock.manager</name>
     <value>org.apache.hadoop.hive.ql.lockmgr.zookeeper.ZooKeeperHiveLockManager</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.lock.numretries</name>
@@ -3107,7 +3122,7 @@
   </property>
   <property>
     <name>hive.zookeeper.quorum</name>
-    <value />
+    <value/>
     <description>
       List of ZooKeeper servers to talk to. This is needed for: 
       1. Read/write locks - when hive.lock.manager is set to 
@@ -3249,7 +3264,7 @@
   </property>
   <property>
     <name>hive.txn.retryable.sqlex.regex</name>
-    <value />
+    <value/>
     <description>
       Comma separated list
       of regular expression patterns for SQL state, error code, and error message of
@@ -3355,7 +3370,7 @@
   </property>
   <property>
     <name>hive.compactor.job.queue</name>
-    <value />
+    <value/>
     <description>
       Used to specify name of Hadoop queue to which
       Compaction jobs will be submitted.  Set to empty string to let Hadoop choose the queue.
@@ -3465,7 +3480,7 @@
   </property>
   <property>
     <name>hive.druid.broker.address.default</name>
-    <value>192.168.42.101:8082</value>
+    <value>localhost:8082</value>
     <description>
       Address of the Druid broker. If we are querying Druid from Hive, this address needs to be
       declared
@@ -3473,12 +3488,12 @@
   </property>
   <property>
     <name>hive.druid.coordinator.address.default</name>
-    <value>192.168.42.101:8081</value>
+    <value>localhost:8081</value>
     <description>Address of the Druid coordinator. It is used to check the load status of newly created segments</description>
   </property>
   <property>
     <name>hive.druid.overlord.address.default</name>
-    <value>192.168.42.101:8090</value>
+    <value>localhost:8090</value>
     <description>Address of the Druid overlord. It is used to submit indexing tasks to druid.</description>
   </property>
   <property>
@@ -3516,7 +3531,7 @@
   </property>
   <property>
     <name>hive.druid.basePersistDirectory</name>
-    <value />
+    <value/>
     <description>Local temporary directory used to persist intermediate indexing state, will default to JVM system property java.io.tmpdir.</description>
   </property>
   <property>
@@ -3539,17 +3554,17 @@
   </property>
   <property>
     <name>hive.druid.metadata.username</name>
-    <value />
+    <value/>
     <description>Username to connect to Type of the metadata DB.</description>
   </property>
   <property>
     <name>hive.druid.metadata.password</name>
-    <value />
+    <value/>
     <description>Password to connect to Type of the metadata DB.</description>
   </property>
   <property>
     <name>hive.druid.metadata.uri</name>
-    <value />
+    <value/>
     <description>URI to connect to the database (for example jdbc:mysql://hostname:port/DBName).</description>
   </property>
   <property>
@@ -3590,7 +3605,7 @@
   </property>
   <property>
     <name>hive.hbase.snapshot.name</name>
-    <value />
+    <value/>
     <description>The HBase table snapshot name to use.</description>
   </property>
   <property>
@@ -3677,8 +3692,8 @@
   </property>
   <property>
     <name>hive.semantic.analyzer.hook</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.security.authorization.enabled</name>
@@ -3727,7 +3742,7 @@
   </property>
   <property>
     <name>hive.security.authorization.createtable.user.grants</name>
-    <value />
+    <value/>
     <description>
       the privileges automatically granted to some users whenever a table gets created.
       An example like "userX,userY:select;userZ:create" will grant select privilege to userX and userY,
@@ -3736,7 +3751,7 @@
   </property>
   <property>
     <name>hive.security.authorization.createtable.group.grants</name>
-    <value />
+    <value/>
     <description>
       the privileges automatically granted to some groups whenever a table gets created.
       An example like "groupX,groupY:select;groupZ:create" will grant select privilege to groupX and groupY,
@@ -3745,7 +3760,7 @@
   </property>
   <property>
     <name>hive.security.authorization.createtable.role.grants</name>
-    <value />
+    <value/>
     <description>
       the privileges automatically granted to some roles whenever a table gets created.
       An example like "roleX,roleY:select;roleZ:create" will grant select privilege to roleX and roleY,
@@ -3754,7 +3769,7 @@
   </property>
   <property>
     <name>hive.security.authorization.createtable.owner.grants</name>
-    <value />
+    <value/>
     <description>
       The privileges automatically granted to the owner whenever a table gets created.
       An example like "select,drop" will grant select and drop privilege to the owner
@@ -3769,7 +3784,7 @@
   </property>
   <property>
     <name>hive.security.authorization.sqlstd.confwhitelist</name>
-    <value />
+    <value/>
     <description>
       A Java regex. Configurations parameters that match this
       regex can be modified by user when SQL standard authorization is enabled.
@@ -3780,7 +3795,7 @@
   </property>
   <property>
     <name>hive.security.authorization.sqlstd.confwhitelist.append</name>
-    <value />
+    <value/>
     <description>
       2nd Java regex that it would match in addition to
       hive.security.authorization.sqlstd.confwhitelist.
@@ -3842,7 +3857,7 @@
   <property>
     <name>hive.mapper.cannot.span.multiple.partitions</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.rework.mapredwork</name>
@@ -3854,7 +3869,7 @@
   </property>
   <property>
     <name>hive.io.exception.handlers</name>
-    <value />
+    <value/>
     <description>
       A list of io exception handler class names. This is used
       to construct a list exception handlers to handle exceptions thrown
@@ -3863,7 +3878,7 @@
   </property>
   <property>
     <name>hive.log4j.file</name>
-    <value />
+    <value/>
     <description>
       Hive log4j configuration file.
       If the property is not set, then logging will be initialized using hive-log4j2.properties found on the classpath.
@@ -3873,7 +3888,7 @@
   </property>
   <property>
     <name>hive.exec.log4j.file</name>
-    <value />
+    <value/>
     <description>
       Hive log4j configuration file for execution mode(sub command).
       If the property is not set, then logging will be initialized using hive-exec-log4j2.properties found on the classpath.
@@ -3946,7 +3961,7 @@
   </property>
   <property>
     <name>hive.service.metrics.reporter</name>
-    <value />
+    <value/>
     <description>Reporter implementations for metric class org.apache.hadoop.hive.common.metrics.metrics2.CodahaleMetrics;Deprecated, use HIVE_CODAHALE_METRICS_REPORTER_CLASSES instead. This configuraiton will be overridden by HIVE_CODAHALE_METRICS_REPORTER_CLASSES if present. Comma separated list of JMX, CONSOLE, JSON_FILE, HADOOP2</description>
   </property>
   <property>
@@ -4016,17 +4031,17 @@
   </property>
   <property>
     <name>hive.query.lifetime.hooks</name>
-    <value />
+    <value/>
     <description>A comma separated list of hooks which implement QueryLifeTimeHook. These will be triggered before/after query compilation and before/after query execution, in the order specified.Implementations of QueryLifeTimeHookWithParseHooks can also be specified in this list. If they arespecified then they will be invoked in the same places as QueryLifeTimeHooks and will be invoked during pre and post query parsing</description>
   </property>
   <property>
     <name>hive.exec.driver.run.hooks</name>
-    <value />
+    <value/>
     <description>A comma separated list of hooks which implement HiveDriverRunHook. Will be run at the beginning and end of Driver.run, these will be run in the order specified.</description>
   </property>
   <property>
     <name>hive.ddl.output.format</name>
-    <value />
+    <value/>
     <description>
       The data format to use for DDL output.  One of "text" (for human
       readable text) or "json" (for a json object).
@@ -4129,7 +4144,7 @@
   </property>
   <property>
     <name>hive.server2.thrift.bind.host</name>
-    <value>192.168.42.101</value>
+    <value>localhost</value>
     <description>Bind host on which to run the HiveServer2 Thrift service.</description>
   </property>
   <property>
@@ -4185,12 +4200,12 @@
   </property>
   <property>
     <name>hive.server2.webui.keystore.path</name>
-    <value />
+    <value/>
     <description>SSL certificate keystore location for HiveServer2 WebUI.</description>
   </property>
   <property>
     <name>hive.server2.webui.keystore.password</name>
-    <value />
+    <value/>
     <description>SSL certificate keystore password for HiveServer2 WebUI.</description>
   </property>
   <property>
@@ -4200,7 +4215,7 @@
   </property>
   <property>
     <name>hive.server2.webui.spnego.keytab</name>
-    <value />
+    <value/>
     <description>The path to the Kerberos Keytab file containing the HiveServer2 WebUI SPNEGO service principal.</description>
   </property>
   <property>
@@ -4265,7 +4280,7 @@
   </property>
   <property>
     <name>hive.server2.tez.interactive.queue</name>
-    <value />
+    <value/>
     <description>
       A single YARN queues to use for Hive Interactive sessions. When this is specified,
       workload management is enabled and used for these sessions.
@@ -4304,7 +4319,7 @@
   </property>
   <property>
     <name>hive.server2.tez.default.queues</name>
-    <value />
+    <value/>
     <description>
       A list of comma separated values corresponding to YARN queues of the same name.
       When HiveServer2 is launched in Tez mode, this configuration needs to be set
@@ -4322,7 +4337,7 @@
   </property>
   <property>
     <name>hive.server2.tez.initialize.default.sessions</name>
-    <value>true</value>
+    <value>false</value>
     <description>
       This flag is used in HiveServer2 to enable a user to use HiveServer2 without
       turning on Tez for HiveServer2. The user could potentially want to run queries
@@ -4361,7 +4376,7 @@
   </property>
   <property>
     <name>hive.server2.tez.sessions.restricted.configs</name>
-    <value />
+    <value/>
     <description>
       The configuration settings that cannot be set when submitting jobs to HiveServer2. If
       any of these are set to values different from those in the server configuration, an
@@ -4490,12 +4505,12 @@
   </property>
   <property>
     <name>hive.server2.thrift.http.cookie.domain</name>
-    <value />
+    <value/>
     <description>Domain for the HS2 generated cookies</description>
   </property>
   <property>
     <name>hive.server2.thrift.http.cookie.path</name>
-    <value />
+    <value/>
     <description>Path for the HS2 generated cookies</description>
   </property>
   <property>
@@ -4596,7 +4611,7 @@
   </property>
   <property>
     <name>hive.server2.async.exec.async.compile</name>
-    <value>true</value>
+    <value>false</value>
     <description>Whether to enable compiling async query asynchronously. If enabled, it is unknown if the query will have any resultset before compilation completed.</description>
   </property>
   <property>
@@ -4609,12 +4624,12 @@
   </property>
   <property>
     <name>hive.session.impl.classname</name>
-    <value />
+    <value/>
     <description>Classname for custom implementation of hive session</description>
   </property>
   <property>
     <name>hive.session.impl.withugi.classname</name>
-    <value />
+    <value/>
     <description>Classname for custom implementation of hive session with UGI</description>
   </property>
   <property>
@@ -4639,22 +4654,22 @@
   </property>
   <property>
     <name>hive.server2.authentication.kerberos.keytab</name>
-    <value />
+    <value/>
     <description>Kerberos keytab file for server principal</description>
   </property>
   <property>
     <name>hive.server2.authentication.kerberos.principal</name>
-    <value />
+    <value/>
     <description>Kerberos server principal</description>
   </property>
   <property>
     <name>hive.server2.authentication.client.kerberos.principal</name>
-    <value />
+    <value/>
     <description>Kerberos principal used by the HA hive_server2s.</description>
   </property>
   <property>
     <name>hive.server2.authentication.spnego.keytab</name>
-    <value />
+    <value/>
     <description>
       keytab file for SPNego principal, optional,
       typical value would look like /etc/security/keytabs/spnego.service.keytab,
@@ -4670,7 +4685,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.spnego.principal</name>
-    <value />
+    <value/>
     <description>
       SPNego service principal, optional,
       typical value would look like HTTP/_HOST@EXAMPLE.COM
@@ -4681,7 +4696,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.url</name>
-    <value />
+    <value/>
     <description>
       LDAP connection URL(s),
       this value could contain URLs to multiple LDAP servers instances for HA,
@@ -4691,17 +4706,17 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.baseDN</name>
-    <value />
+    <value/>
     <description>LDAP base DN</description>
   </property>
   <property>
     <name>hive.server2.authentication.ldap.Domain</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.server2.authentication.ldap.groupDNPattern</name>
-    <value />
+    <value/>
     <description>
       COLON-separated list of patterns to use to find DNs for group entities in this directory.
       Use %s where the actual group name is to be substituted for.
@@ -4710,7 +4725,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.groupFilter</name>
-    <value />
+    <value/>
     <description>
       COMMA-separated list of LDAP Group names (short name not full DNs).
       For example: HiveAdmins,HadoopAdmins,Administrators
@@ -4718,7 +4733,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.userDNPattern</name>
-    <value />
+    <value/>
     <description>
       COLON-separated list of patterns to use to find DNs for users in this directory.
       Use %s where the actual group name is to be substituted for.
@@ -4727,7 +4742,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.userFilter</name>
-    <value />
+    <value/>
     <description>
       COMMA-separated list of LDAP usernames (just short names, not full DNs).
       For example: hiveuser,impalauser,hiveadmin,hadoopadmin
@@ -4752,7 +4767,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.userMembershipKey</name>
-    <value />
+    <value/>
     <description>
       LDAP attribute name on the user object that contains groups of which the user is
       a direct member, except for the primary group, which is represented by the
@@ -4770,7 +4785,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.ldap.customLDAPQuery</name>
-    <value />
+    <value/>
     <description>
       A full LDAP query that LDAP Atn provider uses to execute against LDAP Server.
       If this query returns a null resultset, the LDAP Provider fails the Authentication
@@ -4780,7 +4795,7 @@
   </property>
   <property>
     <name>hive.server2.custom.authentication.class</name>
-    <value />
+    <value/>
     <description>
       Custom authentication class. Used when property
       'hive.server2.authentication' is set to 'CUSTOM'. Provided class
@@ -4793,7 +4808,7 @@
   </property>
   <property>
     <name>hive.server2.authentication.pam.services</name>
-    <value />
+    <value/>
     <description>
       List of the underlying pam services that should be used when auth type is PAM
       A file with the same name must exist in /etc/pam.d
@@ -4801,7 +4816,7 @@
   </property>
   <property>
     <name>hive.server2.enable.doAs</name>
-    <value>false</value>
+    <value>true</value>
     <description>
       Setting this property to true will have HiveServer2 execute
       Hive operations as the user making the calls to it.
@@ -4828,8 +4843,8 @@
   </property>
   <property>
     <name>hive.server2.session.hook</name>
-    <value />
-    <description />
+    <value/>
+    <description/>
   </property>
   <property>
     <name>hive.server2.use.SSL</name>
@@ -4838,12 +4853,12 @@
   </property>
   <property>
     <name>hive.server2.keystore.path</name>
-    <value />
+    <value/>
     <description>SSL certificate keystore location.</description>
   </property>
   <property>
     <name>hive.server2.keystore.password</name>
-    <value />
+    <value/>
     <description>SSL certificate keystore password.</description>
   </property>
   <property>
@@ -4859,7 +4874,7 @@
   </property>
   <property>
     <name>hive.server2.builtin.udf.whitelist</name>
-    <value />
+    <value/>
     <description>
       Comma separated list of builtin udf names allowed in queries.
       An empty whitelist allows all builtin udfs to be executed.  The udf black list takes precedence over udf white list
@@ -4867,7 +4882,7 @@
   </property>
   <property>
     <name>hive.server2.builtin.udf.blacklist</name>
-    <value />
+    <value/>
     <description>Comma separated list of udfs names. These udfs will not be allowed in queries. The udf black list takes precedence over udf white list</description>
   </property>
   <property>
@@ -4880,7 +4895,7 @@
   </property>
   <property>
     <name>hive.server2.session.check.interval</name>
-    <value>5m</value>
+    <value>6h</value>
     <description>
       Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
       The time should be bigger than or equal to 3000 msec.
@@ -4894,7 +4909,7 @@
   </property>
   <property>
     <name>hive.server2.idle.session.timeout</name>
-    <value>4h</value>
+    <value>7d</value>
     <description>
       Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
       Session will be closed when it's not accessed for this duration, which can be disabled by setting to zero or negative value.
@@ -4902,7 +4917,7 @@
   </property>
   <property>
     <name>hive.server2.idle.operation.timeout</name>
-    <value>4h</value>
+    <value>5d</value>
     <description>
       Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
       Operation will be closed when it's not accessed for this duration of time, which can be disabled by setting to zero value.
@@ -4980,7 +4995,7 @@
   </property>
   <property>
     <name>hive.server2.job.credential.provider.path</name>
-    <value />
+    <value/>
     <description>If set, this configuration property should provide a comma-separated list of URLs that indicates the type and location of providers to be used by hadoop credential provider API. It provides HiveServer2 the ability to provide job-specific credential providers for jobs run using MR and Spark execution engines. This functionality has not been tested against Tez.</description>
   </property>
   <property>
@@ -5090,7 +5105,7 @@
   </property>
   <property>
     <name>hive.jar.directory</name>
-    <value />
+    <value/>
     <description>
       This is the location hive in tez mode will look for to find a site wide 
       installed hive instance.
@@ -5211,7 +5226,7 @@
   </property>
   <property>
     <name>hive.vectorized.input.format.excludes</name>
-    <value />
+    <value/>
     <description>
       This configuration should be set to fully described input format class names for which 
        vectorized input format should not be used for vectorized execution.
@@ -5332,7 +5347,7 @@
   </property>
   <property>
     <name>hive.hadoop.classpath</name>
-    <value />
+    <value/>
     <description>
       For Windows OS, we need to pass HIVE_HADOOP_CLASSPATH Java parameter while starting HiveServer2 
       using "-hiveconf hive.hadoop.classpath=%HIVE_LIB%".
@@ -5381,7 +5396,7 @@
   <property>
     <name>hive.explain.dependency.append.tasktype</name>
     <value>false</value>
-    <description />
+    <description/>
   </property>
   <property>
     <name>hive.counters.group.name</name>
@@ -5418,7 +5433,7 @@
   </property>
   <property>
     <name>hive.users.in.admin.role</name>
-    <value />
+    <value/>
     <description>
       Comma separated list of users who are in admin role for bootstrapping.
       More users can be added in ADMIN role later.
@@ -5466,7 +5481,7 @@
   </property>
   <property>
     <name>hive.tez.auto.reducer.parallelism</name>
-    <value>true</value>
+    <value>false</value>
     <description>
       Turn on Tez' auto reducer parallelism feature. When enabled, Hive will still estimate data sizes
       and set parallelism estimates. Tez will sample source vertices' output sizes and adjust the estimates at runtime as
@@ -5616,7 +5631,7 @@
   </property>
   <property>
     <name>hive.tez.container.max.java.heap.fraction</name>
-    <value>0.75</value>
+    <value>0.8</value>
     <description>This is to override the tez setting with the same name</description>
   </property>
   <property>
@@ -5641,7 +5656,7 @@
   </property>
   <property>
     <name>hive.llap.io.enabled</name>
-    <value />
+    <value/>
     <description>Whether the LLAP IO layer is enabled.</description>
   </property>
   <property>
@@ -5976,17 +5991,17 @@
   </property>
   <property>
     <name>hive.llap.daemon.service.principal</name>
-    <value />
+    <value/>
     <description>The name of the LLAP daemon's service principal.</description>
   </property>
   <property>
     <name>hive.llap.daemon.keytab.file</name>
-    <value />
+    <value/>
     <description>The path to the Kerberos Keytab file containing the LLAP daemon's service principal.</description>
   </property>
   <property>
     <name>hive.llap.webui.spnego.keytab</name>
-    <value />
+    <value/>
     <description>
       The path to the Kerberos Keytab file containing the LLAP WebUI SPNEGO principal.
       Typical value would look like /etc/security/keytabs/spnego.service.keytab.
@@ -5994,7 +6009,7 @@
   </property>
   <property>
     <name>hive.llap.webui.spnego.principal</name>
-    <value />
+    <value/>
     <description>
       The LLAP WebUI SPNEGO service principal. Configured similarly to
       hive.server2.webui.spnego.principal
@@ -6002,7 +6017,7 @@
   </property>
   <property>
     <name>hive.llap.task.principal</name>
-    <value />
+    <value/>
     <description>
       The name of the principal to use to run tasks. By default, the clients are required
       to provide tokens to access HDFS/etc.
@@ -6010,7 +6025,7 @@
   </property>
   <property>
     <name>hive.llap.task.keytab.file</name>
-    <value />
+    <value/>
     <description>
       The path to the Kerberos Keytab file containing the principal to use to run tasks.
       By default, the clients are required to provide tokens to access HDFS/etc.
@@ -6018,7 +6033,7 @@
   </property>
   <property>
     <name>hive.llap.zk.sm.connectionString</name>
-    <value />
+    <value/>
     <description>ZooKeeper connection string for ZooKeeper SecretManager.</description>
   </property>
   <property>
@@ -6031,7 +6046,7 @@
   </property>
   <property>
     <name>hive.llap.zk.registry.user</name>
-    <value />
+    <value/>
     <description>
       In the LLAP ZooKeeper-based registry, specifies the username in the Zookeeper path.
       This should be the hive user or whichever user is running the LLAP daemon.
@@ -6039,7 +6054,7 @@
   </property>
   <property>
     <name>hive.llap.zk.registry.namespace</name>
-    <value />
+    <value/>
     <description>
       In the LLAP ZooKeeper-based registry, overrides the ZK path namespace. Note that
       using this makes the path management (e.g. setting correct ACLs) your responsibility.
@@ -6052,7 +6067,7 @@
   </property>
   <property>
     <name>hive.llap.daemon.acl.blocked</name>
-    <value />
+    <value/>
     <description>The deny ACL for LLAP daemon.</description>
   </property>
   <property>
@@ -6062,7 +6077,7 @@
   </property>
   <property>
     <name>hive.llap.management.acl.blocked</name>
-    <value />
+    <value/>
     <description>The deny ACL for LLAP daemon management.</description>
   </property>
   <property>
@@ -6072,7 +6087,7 @@
   </property>
   <property>
     <name>hive.llap.plugin.acl.blocked</name>
-    <value />
+    <value/>
     <description>The deny ACL for LLAP plugin AM endpoint.</description>
   </property>
   <property>
@@ -6116,7 +6131,7 @@
   </property>
   <property>
     <name>hive.llap.daemon.work.dirs</name>
-    <value />
+    <value/>
     <description>
       Working directories for the daemon. This should not be set if running as a YARN
       Service. It must be set when not running on YARN. If the value is set when
@@ -6135,17 +6150,17 @@
   </property>
   <property>
     <name>hive.llap.daemon.queue.name</name>
-    <value />
+    <value/>
     <description>Queue name within which the llap application will run. Used in LlapServiceDriver and package.py</description>
   </property>
   <property>
     <name>hive.llap.daemon.container.id</name>
-    <value />
+    <value/>
     <description>ContainerId of a running LlapDaemon. Used to publish to the registry</description>
   </property>
   <property>
     <name>hive.llap.daemon.nm.address</name>
-    <value />
+    <value/>
     <description>
       NM Address host:rpcPort for the NodeManager on which the instance of the daemon is running.
       Published to the llap registry. Should never be set by users
@@ -6281,7 +6296,7 @@
   </property>
   <property>
     <name>hive.llap.daemon.service.hosts</name>
-    <value />
+    <value/>
     <description>
       Explicitly specified hosts to use for LLAP scheduling. Useful for testing. By default,
       YARN registry is used.
@@ -6317,12 +6332,12 @@
   </property>
   <property>
     <name>hive.llap.task.scheduler.am.registry.principal</name>
-    <value />
+    <value/>
     <description>The name of the principal used to access ZK AM registry securely.</description>
   </property>
   <property>
     <name>hive.llap.task.scheduler.am.registry.keytab.file</name>
-    <value />
+    <value/>
     <description>The path to the Kerberos keytab file used to access ZK AM registry securely.</description>
   </property>
   <property>
@@ -6611,7 +6626,7 @@
   </property>
   <property>
     <name>hive.spark.client.channel.log.level</name>
-    <value />
+    <value/>
     <description>Channel logging level for remote Spark driver.  One of {DEBUG, ERROR, INFO, TRACE, WARN}.</description>
   </property>
   <property>
@@ -6621,12 +6636,12 @@
   </property>
   <property>
     <name>hive.spark.client.rpc.server.address</name>
-    <value />
+    <value/>
     <description>The server address of HiverServer2 host to be used for communication between Hive client and remote Spark driver. Default is empty, which means the address will be determined in the same way as for hive.server2.thrift.bind.host.This is only necessary if the host has multiple network addresses and if a different network address other than hive.server2.thrift.bind.host is to be used.</description>
   </property>
   <property>
     <name>hive.spark.client.rpc.server.port</name>
-    <value />
+    <value/>
     <description>A list of port ranges which can be used by RPC server with the format of 49152-49222,49228 and a random one is selected from the list. Default is empty, which randomly selects one port from all available ones.</description>
   </property>
   <property>
@@ -6735,7 +6750,7 @@
   </property>
   <property>
     <name>hive.log.trace.id</name>
-    <value />
+    <value/>
     <description>Log tracing id that can be used by upstream clients for tracking respective logs. Truncated to 64 characters. Defaults to use auto-generated session id.</description>
   </property>
   <property>
@@ -6899,9 +6914,4 @@
       See HIVE-15121 for details.
     </description>
   </property>
-
-    <property>
-        <name>hive.stats.fetch.partition.stats</name>
-        <value>false</value>
-    </property>
 </configuration>

@@ -39,7 +39,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/dolphinscheduler?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: __REDACTED__
+    password: 123456
   quartz:
     job-store-type: jdbc
     jdbc:
@@ -97,7 +97,7 @@ security:
       urls: ldap://ldap.forumsys.com:389/
       base-dn: dc=example,dc=com
       username: cn=read-only-admin,dc=example,dc=com
-      password: __REDACTED__
+      password: password
       user:
         # admin userId when you use LDAP login
         admin: read-only-admin
@@ -189,7 +189,7 @@ python-gateway:
   enabled: true
   # Authentication token for connection from python api to python gateway server. Should be changed the default value
   # when you deploy in public network.
-  auth-token: __REDACTED__
+  auth-token: jwUDzpLsNKEFER4*a8gruBH_GsAurNxU7A@Xc
   # The address of Python gateway server start. Set its value to `0.0.0.0` if your Python API run in different
   # between Python gateway server. It could be be specific to other address like `127.0.0.1` or `localhost`
   gateway-server-address: 0.0.0.0
@@ -256,7 +256,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://127.0.0.1:5432/dolphinscheduler
     username: root
-    password: __REDACTED__
+    password: root
 
 ---
 spring:
@@ -270,4 +270,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/dolphinscheduler?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: __REDACTED__
+    password: 123456

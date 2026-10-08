@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+   <property>
+      <name>tez.lib.uris</name>
+      <value>${fs.defaultFS}/tez/tez.tar.gz</value>
+   </property>
+   <property>
+      <name>tez.use.cluster.hadoop-libs</name>
+      <value>true</value>
+   </property>
+   <property>
+      <name>tez.history.logging.service.class</name>
+    <value>org.apache.tez.dag.history.logging.impl.SimpleHistoryLoggingService</value>
+   </property>
+   <property>
+      <name>tez.am.resource.memory.mb</name>
+    <value>1536</value>
+   </property>
+   <property>
+      <name>tez.am.java.opts</name>
+      <value>-Xmx1536m</value>
+   </property>
+   <property>
+      <name>tez.task.resource.memory.mb</name>
+    <value>768</value>
+   </property>
+   <property>
+      <name>tez.session.am.dag.submit.timeout.secs</name>
+      <value>900</value>
+   </property>
+   <property>
+      <name>tez.am.log.level</name>
+      <value>INFO</value>
+   </property>
+   <property>
+      <name>tez.task.log.level</name>
+      <value>INFO</value>
+   </property>
+   <property>
+      <name>tez.am.logging.profile</name>
+      <value>MINIMAL</value>
+   </property>
+   <property>
+      <name>tez.container.log.level</name>
+      <value>INFO</value>
+   </property>
+<property>
+  <name>tez.runtime.io.sort.mb</name>
+  <value>256</value>
+</property>
+<property>
+  <name>tez.am.log.level</name>
+  <value>DEBUG</value>
+</property>
+</configuration>

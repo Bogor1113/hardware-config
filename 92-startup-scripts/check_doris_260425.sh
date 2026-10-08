@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置密码变量（避免每次输入）
-DORIS_PWD="__REDACTED__"
+DORIS_PWD="123456"
 
 echo "=== 1. 检查进程 ==="
 jps | grep -E "DorisFE|DorisBE" || echo "缺少 Doris 进程"

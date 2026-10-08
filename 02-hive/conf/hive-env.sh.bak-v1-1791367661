@@ -1,0 +1,24 @@
+export HADOOP_HOME=/opt/hadoop3
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_OPTS="$HADOOP_OPTS -Dhive.log.level=ERROR -Dorg.slf4j.simpleLogger.defaultLogLevel=error"
+export TEZ_HOME=/opt/tez-0.10.2
+export TEZ_CONF_DIR=$TEZ_HOME/conf
+# 只收集 tez 自身 jar（tez-*.jar），排除 tez 自带的 hadoop-* 避免与集群 hadoop 3.3.6 冲突
+export TEZ_JARS=$(ls $TEZ_HOME/tez-*.jar | tr '\n' ':' | sed 's/:$//')
+export HIVE_AUX_JARS_PATH=$TEZ_JARS
+export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Dlog4j.configuration=file:/opt/hive3/conf/client-log4j.properties"
+
+# ============================================================
+# [tuned 2026-10-07] 堆口径拆分
+# 原状：HADOOP_HEAPSIZE=1024 + -Xmx1024m 同时作用于 HS2 / Metastore / CLI 三者，
+#       导致 HS2 堆只有 1024m 却已用 89%，随时 OOM。
+# 现改为：
+#   - 服务端(HS2/Metastore) 走 HIVE_SERVER2_OPTS / METASTORE_OPTS，显式 -Xmx1536m
+#   - 客户端(CLI/beeline) 保持 1024m 足够（只做编译与打印，不装数据）
+# ============================================================
+export HADOOP_HEAPSIZE=            # 清空，避免污染各角色
+export HIVE_SERVER2_HEAPSIZE=1536
+export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Xmx1024m"
+
+export HIVE_SERVER2_OPTS="-Xmx1536m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
+export METASTORE_OPTS="-Xmx1024m -XX:+UseG1GC"

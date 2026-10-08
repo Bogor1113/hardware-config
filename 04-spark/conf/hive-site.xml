@@ -551,7 +551,7 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionPassword</name>
-    <value>__REDACTED__</value>
+    <value>123456</value>
     <description>password to use against metastore database</description>
   </property>
   <property>
@@ -1109,7 +1109,7 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionUserName</name>
-    <value>__REDACTED__</value>
+    <value>root</value>
     <description>Username to use against metastore database</description>
   </property>
   <property>
@@ -4944,7 +4944,7 @@
   </property>
   <property>
     <name>hive.server2.thrift.client.password</name>
-    <value>__REDACTED__</value>
+    <value>anonymous</value>
     <description>Password to use against thrift client</description>
   </property>
   <property>

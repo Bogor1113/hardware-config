@@ -6,7 +6,7 @@ export DATABASE=${DATABASE:-mysql}
 export SPRING_PROFILES_ACTIVE=${DATABASE}
 export SPRING_DATASOURCE_URL="jdbc:mysql://localhost:3306/dolphinscheduler?useUnicode=true&characterEncoding=UTF-8&useSSL=false"
 export SPRING_DATASOURCE_USERNAME="root"
-export SPRING_DATASOURCE_PASSWORD="__REDACTED__"
+export SPRING_DATASOURCE_PASSWORD="123456"
 
 # DolphinScheduler服务相关配置
 export SPRING_CACHE_TYPE=${SPRING_CACHE_TYPE:-none}

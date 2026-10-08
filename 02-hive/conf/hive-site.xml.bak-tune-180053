@@ -2278,7 +2278,7 @@
   </property>
   <property>
     <name>hive.auto.convert.join.noconditionaltask.size</name>
-    <value>16777216</value>
+    <value>52428800</value>
     <description>
       If hive.auto.convert.join.noconditionaltask is off, this parameter does not take affect. 
       However, if it is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than this size, 
@@ -2429,7 +2429,7 @@
   </property>
   <property>
     <name>hive.tez.container.size</name>
-    <value>1024</value>
+    <value>1536</value>
     <description>By default Tez will spawn containers of the size of a mapper. This can be used to overwrite.</description>
   </property>
   <property>
@@ -2442,7 +2442,7 @@
   </property>
   <property>
     <name>hive.tez.java.opts</name>
-    <value>-Xmx768m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError</value>
+    <value>-Xmx1152m</value>
     <description>By default Tez will use the Java options from map tasks. This can be used to overwrite.</description>
   </property>
   <property>
@@ -2854,7 +2854,7 @@
   </property>
   <property>
     <name>hive.stats.autogather</name>
-    <value>false</value>
+    <value>true</value>
     <description>A flag to gather statistics (only basic) automatically during the INSERT OVERWRITE command.</description>
   </property>
   <property>
@@ -4894,7 +4894,7 @@
   </property>
   <property>
     <name>hive.server2.idle.session.timeout</name>
-    <value>4h</value>
+    <value>2h</value>
     <description>
       Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
       Session will be closed when it's not accessed for this duration, which can be disabled by setting to zero or negative value.
@@ -4902,7 +4902,7 @@
   </property>
   <property>
     <name>hive.server2.idle.operation.timeout</name>
-    <value>4h</value>
+    <value>2h</value>
     <description>
       Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
       Operation will be closed when it's not accessed for this duration of time, which can be disabled by setting to zero value.
@@ -6899,9 +6899,4 @@
       See HIVE-15121 for details.
     </description>
   </property>
-
-    <property>
-        <name>hive.stats.fetch.partition.stats</name>
-        <value>false</value>
-    </property>
 </configuration>

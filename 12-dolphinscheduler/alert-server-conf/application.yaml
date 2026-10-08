@@ -25,7 +25,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://127.0.0.1:5432/dolphinscheduler
     username: root
-    password: __REDACTED__
+    password: root
     hikari:
       connection-test-query: select 1
       minimum-idle: 5
@@ -79,4 +79,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/dolphinscheduler
     username: root
-    password: __REDACTED__
+    password: root

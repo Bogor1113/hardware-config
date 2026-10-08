@@ -180,7 +180,7 @@
   </property>
   <property>
     <name>hive.exec.compress.output</name>
-    <value>false</value>
+    <value>true</value>
     <description>
       This controls whether the final outputs of a query (to a local/HDFS file or a Hive table) is compressed. 
       The compression codec and other options are determined from Hadoop config variables mapred.output.compress*
@@ -196,7 +196,7 @@
   </property>
   <property>
     <name>hive.intermediate.compression.codec</name>
-    <value>org.apache.hadoop.io.compress.DefaultCodec</value>
+    <value>org.apache.hadoop.io.compress.SnappyCodec</value>
     <description />
   </property>
   <property>
@@ -206,12 +206,12 @@
   </property>
   <property>
     <name>hive.exec.reducers.bytes.per.reducer</name>
-    <value>64000000</value>
+    <value>268435456</value>
     <description>size per reducer.The default is 256Mb, i.e if the input size is 1G, it will use 4 reducers.</description>
   </property>
   <property>
     <name>hive.exec.reducers.max</name>
-    <value>12</value>
+    <value>1009</value>
     <description>
       max number of reducers will be used. If the one specified in the configuration parameter mapred.reduce.tasks is
       negative, Hive will use this one as the max number of reducers when automatically determine number of reducers.
@@ -272,7 +272,7 @@
   </property>
   <property>
     <name>hive.exec.parallel</name>
-    <value>false</value>
+    <value>true</value>
     <description>Whether to execute jobs in parallel</description>
   </property>
   <property>
@@ -1463,7 +1463,7 @@
   </property>
   <property>
     <name>hive.groupby.skewindata</name>
-    <value>false</value>
+    <value>true</value>
     <description>Whether there is skew in data to optimize group by queries</description>
   </property>
   <property>
@@ -2011,12 +2011,12 @@
   </property>
   <property>
     <name>hive.merge.size.per.task</name>
-    <value>256000000</value>
+    <value>134217728</value>
     <description>Size of merged files at the end of the job</description>
   </property>
   <property>
     <name>hive.merge.smallfiles.avgsize</name>
-    <value>16000000</value>
+    <value>134217728</value>
     <description>
       When the average output file size of a job is less than this number, Hive will start an additional 
       map-reduce job to merge the output files into bigger files. This is only done for map-only jobs 
@@ -2256,7 +2256,7 @@
   </property>
   <property>
     <name>hive.optimize.dynamic.partition.hashjoin</name>
-    <value>false</value>
+    <value>true</value>
     <description>
       Whether to enable dynamically partitioned hash join optimization. 
       This setting is also dependent on enabling hive.auto.convert.join
@@ -2278,7 +2278,7 @@
   </property>
   <property>
     <name>hive.auto.convert.join.noconditionaltask.size</name>
-    <value>16777216</value>
+    <value>52428800</value>
     <description>
       If hive.auto.convert.join.noconditionaltask is off, this parameter does not take affect. 
       However, if it is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than this size, 
@@ -2429,12 +2429,12 @@
   </property>
   <property>
     <name>hive.tez.container.size</name>
-    <value>1024</value>
+    <value>1536</value>
     <description>By default Tez will spawn containers of the size of a mapper. This can be used to overwrite.</description>
   </property>
   <property>
     <name>hive.tez.cpu.vcores</name>
-    <value>-1</value>
+    <value>1</value>
     <description>
       By default Tez will ask for however many cpus map-reduce is configured to use per container.
       This can be used to overwrite.
@@ -2442,7 +2442,7 @@
   </property>
   <property>
     <name>hive.tez.java.opts</name>
-    <value>-Xmx768m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError</value>
+    <value>-Xmx1152m -XX:+UseParallelGC</value>
     <description>By default Tez will use the Java options from map tasks. This can be used to overwrite.</description>
   </property>
   <property>
@@ -2553,7 +2553,7 @@
   </property>
   <property>
     <name>hive.optimize.index.filter</name>
-    <value>false</value>
+    <value>true</value>
     <description>Whether to enable automatic use of indexes</description>
   </property>
   <property>
@@ -2809,7 +2809,7 @@
   </property>
   <property>
     <name>hive.optimize.remove.sq_count_check</name>
-    <value>false</value>
+    <value>true</value>
     <description>Whether to remove an extra join with sq_count_check for scalar subqueries with constant group by keys.</description>
   </property>
   <property>
@@ -2854,7 +2854,7 @@
   </property>
   <property>
     <name>hive.stats.autogather</name>
-    <value>false</value>
+    <value>true</value>
     <description>A flag to gather statistics (only basic) automatically during the INSERT OVERWRITE command.</description>
   </property>
   <property>
@@ -2999,7 +2999,7 @@
   </property>
   <property>
     <name>hive.stats.fetch.column.stats</name>
-    <value>false</value>
+    <value>true</value>
     <description>
       Annotation of operator tree with statistics information requires column statistics.
       Column statistics are fetched from metastore. Fetching column statistics for each needed column
@@ -6902,6 +6902,6 @@
 
     <property>
         <name>hive.stats.fetch.partition.stats</name>
-        <value>false</value>
+        <value>true</value>
     </property>
 </configuration>

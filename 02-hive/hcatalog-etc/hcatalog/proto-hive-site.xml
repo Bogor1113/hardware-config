@@ -42,13 +42,13 @@
 
 <property>
   <name>javax.jdo.option.ConnectionUserName</name>
-  <value>__REDACTED__</value>
+  <value>hive</value>
   <description>username to use against metastore database</description>
 </property>
 
 <property>
   <name>javax.jdo.option.ConnectionPassword</name>
-  <value>__REDACTED__</value>
+  <value>PASSWORD</value>
   <description>password to use against metastore database</description>
 </property>
 

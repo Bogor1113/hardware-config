@@ -1,0 +1,15 @@
+export HADOOP_HOME=/opt/hadoop3
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_OPTS="$HADOOP_OPTS -Dhive.log.level=ERROR -Dorg.slf4j.simpleLogger.defaultLogLevel=error"
+# [tuned] export HADOOP_HEAPSIZE=2048   # 原值 2048 让 HS2/Metastore/CLI 全部吃 2G, 改为分角色设置
+export TEZ_HOME=/opt/tez-0.10.2
+export TEZ_CONF_DIR=$TEZ_HOME/conf
+# 只收集 tez 自身 jar（tez-*.jar），排除 tez 自带的 hadoop-* 避免与集群 hadoop 3.3.6 冲突
+export TEZ_JARS=$(ls $TEZ_HOME/tez-*.jar | tr '\n' ':' | sed 's/:$//')
+export HIVE_AUX_JARS_PATH=$TEZ_JARS
+export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Xmx512m -Dlog4j.configuration=file:/opt/hive3/conf/client-log4j.properties"
+
+export HIVE_SERVER2_HEAPSIZE=1024
+export HIVE_METASTORE_HEAPSIZE=1024
+# [tuned] 客户端(beeline/hive CLI)堆上限, 防止本地 JVM 吃掉 2GB
+export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -Xmx512m"
